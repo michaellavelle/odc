@@ -61,6 +61,12 @@
 						<jvmArg>-Xms64m</jvmArg>
 						<jvmArg>-Xmx1024m</jvmArg>
 					</jvmArgs>
+					<javacArgs>
+						<javacArg>-Xlint:unchecked</javacArg>
+						<javacArg>-Xlint:deprecation</javacArg>
+						<javacArg>-source 1.7</javacArg>
+						<javacArg>-target 1.7</javacArg>
+					</javacArgs>
 				</configuration>
 			</plugin>
 		</plugins>
