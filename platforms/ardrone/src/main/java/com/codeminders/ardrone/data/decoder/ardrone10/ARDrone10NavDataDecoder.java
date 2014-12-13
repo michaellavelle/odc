@@ -41,7 +41,7 @@ public class ARDrone10NavDataDecoder extends NavDataDecoder {
                     try {
                         notifyDroneWithDecodedNavdata(ARDrone10NavData.createFromData(ByteBuffer.wrap(buffer), len));
                     } catch (NavDataFormatException e) {
-                        log.log(Level.SEVERE, "Failed to decode receivd navdata information", e);
+                        log.log(Level.WARNING, "Failed to decode receivd navdata information", e);
                     } catch (Exception ex) {
                         log.log(Level.SEVERE, "Failed to decode receivd navdata information", ex);
                     }
