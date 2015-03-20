@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 import java.awt.image.BufferedImage;
 
 
+import com.codeminders.ardrone.commands.BatchATCommand;
 import com.codeminders.ardrone.commands.ConfigureCommand;
 import com.codeminders.ardrone.commands.ControlCommand;
 import com.codeminders.ardrone.commands.EmergencyCommand;
@@ -548,6 +549,13 @@ public class ARDrone
     {
         cmd_queue.add(new MoveCommand(combinedYawMode, left_right_tilt, front_back_tilt, vertical_speed, angular_speed));
     }
+    
+    public void moveMultiple(float left_right_tilt, float front_back_tilt, float vertical_speed, float angular_speed,int batchSize)
+            throws IOException
+    {
+        cmd_queue.add(new BatchATCommand(new MoveCommand(combinedYawMode, left_right_tilt, front_back_tilt, vertical_speed, angular_speed),batchSize));
+    }
+
 
     // Callback used by receiver
     protected void navDataReceived(NavData nd)

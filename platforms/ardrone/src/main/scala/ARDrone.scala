@@ -107,6 +107,14 @@ class ARDrone(var ip:String="192.168.1.1") extends DroneBase {
     }
     drone.get.move(x,z,y,r) 
   }
+  
+  def moveMultiple( x: Float, y: Float, z: Float, r: Float , m: Int){
+    if( drone.isEmpty ){
+      println("Drone not connected.")
+      return
+    }
+    drone.get.moveMultiple(x,z,y,r,m); 
+  }
 
   override def hover(){
     if( drone.isEmpty ){

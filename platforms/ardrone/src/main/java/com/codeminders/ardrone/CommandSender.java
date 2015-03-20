@@ -41,7 +41,17 @@ public class CommandSender implements Runnable
                     // Terminating
                     break;
                 }
-
+                if(c instanceof BatchATCommand)
+                {
+                	BatchATCommand cmd = (BatchATCommand) c;
+                    //if(!(c instanceof KeepAliveCommand) && !(c instanceof MoveCommand) && !(c instanceof HoverCommand) && c.getStickyCounter()==0)
+                    log.fine("Q[" + cmd_queue.size() + "]Sending AT command " + c);
+                    byte[] pdata = cmd.getPacket(sequence); // TODO: pass
+                                                              // sequence number
+                    sequence = sequence + cmd.getBatchSize();
+                    DatagramPacket p = new DatagramPacket(pdata, pdata.length, drone_addr, CMD_PORT);
+                    cmd_socket.send(p);
+                }
                 if(c instanceof ATCommand)
                 {
                     ATCommand cmd = (ATCommand) c;
