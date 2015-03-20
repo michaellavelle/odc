@@ -16,6 +16,13 @@
 			<id>Xuggle</id>
 			<url>http://xuggle.googlecode.com/svn/trunk/repo/share/java/</url>
 		</repository>
+		<repository>
+			<id>opensourceagility-snapshots</id>
+			<url>http://repo.opensourceagility.com/snapshots</url>
+		<snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
